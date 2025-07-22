@@ -1,0 +1,13 @@
+train: train/images
+val: valid/images
+test: test/images
+
+names: 
+  0: batsman
+  1: bowler running in
+  2: bowler walking back
+  3: non striker
+  4: running
+  5: stumps
+  6: umpire
+  7: wicket keeper
