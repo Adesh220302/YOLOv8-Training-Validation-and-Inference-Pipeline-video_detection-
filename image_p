@@ -1,0 +1,19 @@
+import cv2
+import matplotlib.pyplot as plt
+
+img = cv2.imread("dp.jpg")
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+normalized = img_rgb / 255.0 
+resized = cv2.resize(img_rgb, (300, 300))
+crop = img_rgb[50:200, 100:300]
+blur = cv2.GaussianBlur(img_rgb, (5, 5), 0)
+edges = cv2.Canny(img_rgb, 100, 200)
+
+# convert to grayscale first for threshold & hist equalization
+gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
+_, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
+hist_eq = cv2.equalizeHist(gray)
+
+plt.imshow(normalized)
+plt.show()
